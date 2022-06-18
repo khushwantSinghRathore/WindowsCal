@@ -1,0 +1,7 @@
+{
+  "name": "WindowsCal",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
