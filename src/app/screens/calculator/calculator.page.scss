@@ -1,0 +1,36 @@
+ion-content{
+    --background: rgba(37,29,35,255) !important;  
+    backdrop-filter: blur(5px) !important;
+}
+
+ion-col{
+    margin: 0.83%;
+}
+
+.Container{
+    background-color: rgba(69,54,63,255) !important; 
+    backdrop-filter: saturate(180%) blur(0px);
+    border-radius: 8px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: x-large;
+    padding: 2vh 0vh;
+    font-size: x-large;
+}
+
+.Container2{
+    background-color:#4cc2ff !important; 
+    backdrop-filter: saturate(180%) blur(0px);
+    border-radius: 8px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: x-large;
+    padding: 2vh 0vh;
+    font-size: x-large;
+}
+
+.controls{
+    position: absolute;
+    bottom: 2px;
+    width: 100%;
+}
