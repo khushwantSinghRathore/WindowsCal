@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Platform } from '@ionic/angular';
+import { Keyboard } from '@capacitor/keyboard';
+import { SplashScreen } from '@capacitor/splash-screen';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,20 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(private platform: Platform) {
+    Keyboard.hide();
+    this.startApp();
+  }
+
+   startApp(){
+    this.platform.ready().then(() => {
+
+      setTimeout(async () => {
+        await SplashScreen.hide();
+      }, 200);
+
+    });
+
+  }
+
 }

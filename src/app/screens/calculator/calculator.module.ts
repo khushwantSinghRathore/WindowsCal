@@ -13,8 +13,8 @@ import { CalculatorPage } from './calculator.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    CalculatorPageRoutingModule
+    CalculatorPageRoutingModule,
   ],
-  declarations: [CalculatorPage]
+  declarations: [CalculatorPage],
 })
 export class CalculatorPageModule {}

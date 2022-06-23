@@ -24,3 +24,21 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+ion-input{
+    input{
+        direction: RTL !important;
+    }
+}
+
+.native-input[disabled]{
+    opacity: 1 !important;
+}
+
+
+ion-model .md .modal-sheet .hydrated .show-modal .modal-wrapper .ion-overlay-wrapper
+.modal-handle{
+    visibility: hidden !important;
+}
+

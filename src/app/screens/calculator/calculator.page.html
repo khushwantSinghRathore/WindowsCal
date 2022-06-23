@@ -1,24 +1,55 @@
 <ion-content fullscreen>
-
+<ion-grid>
+  <ion-row class="icons">
+    <ion-col size="2" (click)="openFirst()"> <ion-icon name="menu"></ion-icon> </ion-col>
+    <ion-col size="8"> </ion-col>
+    <ion-col size="2" id="open-modal">  <ion-icon name="timer-outline" class="rtg"></ion-icon> </ion-col>
+  </ion-row>
+</ion-grid>
   <div class="controls">
 
     <ion-grid>
-      <ion-row *ngIf="perv">
-        <ion-col size="12"></ion-col>
+      <ion-row>
+        <ion-col size="12" style="text-align: end; color:#777879; font-size: x-large;"> {{ displayEqv  }} </ion-col>
       </ion-row>
       <ion-row>
         <ion-col size="12">
-          <ion-input placeholder="0" style="text-align: end; font-size: xxx-large !important;" readonly="true">
+          <ion-input type="text"  placeholder="0" style="direction:RTL !important; font-size: xxx-large !important; color: white !important; font-weight: 600;" disabled [(ngModel)]="currentVal">
           </ion-input>
         </ion-col>
       </ion-row>
       <ion-row *ngFor="let data of displayBtn">
-        <ion-col class="Container ion-align-self-center" size="2.8" *ngFor="let btn of data "
-          [ngClass]="{'Container2': btn === '='}"> {{ btn }} </ion-col>
+        <ion-col class="Container ion-align-self-center ion-activatable ripple-parent" size="2.8" *ngFor="let btn of data "
+          [ngClass]="{'Container2': btn === '=' , 'Container3': darkopr.includes(btn)}" (click)="onBtn(btn)">  <div  *ngIf="btn !== 'clear'">  {{ btn }} </div>    <ion-icon name="backspace-outline" *ngIf="btn === 'clear'"></ion-icon>   <ion-ripple-effect style=" border-radius: 8px !important;"></ion-ripple-effect> </ion-col>
       </ion-row>
     </ion-grid>
 
   </div>
+
+  <ion-modal #modal trigger="open-modal" [initialBreakpoint]="0.5" [breakpoints]="[0,0.5]">
+    <ng-template>
+      <ion-content>
+        <div *ngIf="!memory" class="messg">
+          There's no history yet
+
+        </div>
+
+      <ion-grid *ngIf="memory">
+        <ion-row>
+          <ion-col size="12">
+            {{ memory.displyeq }}
+          </ion-col>
+          <ion-col size="12">
+            {{ memory.result }}
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <div class="det" *ngIf="memory">  <ion-icon name="trash-sharp"></ion-icon> </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 
 
 </ion-content>
