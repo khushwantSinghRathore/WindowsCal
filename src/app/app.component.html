@@ -2,7 +2,7 @@
   <ion-menu side="start" menuId="first" contentId="main">
     <ion-content>
 
-      <ion-modal #modal trigger="open-about" [initialBreakpoint]="0.6" [breakpoints]="[0,0.6]">
+      <ion-modal #modal trigger="open-about" [initialBreakpoint]="0.65" [breakpoints]="[0,0.65]" [handle]="false">
         <ng-template>
           <ion-content>
             <ion-grid class="aboutmodel">
@@ -16,15 +16,15 @@
                 <ion-col size="12">
                   © 2022 Microsoft. All rights reserved.
                 </ion-col>
-                <ion-col size="12">
-                  <p href="https://www.microsoft.com/en-us/Useterms/Retail/Windows/10/UseTerms_Retail_Windows_10_English.html">
+                <ion-col size="12" >
+                  <p class="link" href="https://www.microsoft.com/en-us/Useterms/Retail/Windows/10/UseTerms_Retail_Windows_10_English.html">
                     Microsoft License Terms </p>
                 </ion-col>
                 <ion-col size="12">
-                  <p href="https://www.microsoft.com/en-us/servicesagreement/default.aspx"> Microsoft Services Agreement </p>
+                  <p class="link" href="https://www.microsoft.com/en-us/servicesagreement/default.aspx"> Microsoft Services Agreement </p>
                 </ion-col>
                 <ion-col size="12">
-                  <p href="https://privacy.microsoft.com/en-us/privacystatement"> Microsoft Privacy Statement </p>
+                  <p class="link" href="https://privacy.microsoft.com/en-us/privacystatement"> Microsoft Privacy Statement </p>
                 </ion-col>
                 <ion-col size="12">
                   <ion-button color="medium" mode="ios" size="large" >
@@ -32,7 +32,7 @@
                   </ion-button>
                 </ion-col>
                 <ion-col size="12">
-                  <p> To learn how you can contribute to Windows Calculator, check out the project on <span href="https://github.com/Microsoft/calculator">GitHub</span>.</p>
+                  <p> To learn how you can contribute to Windows Calculator, check out the project on <span class="link" href="https://github.com/Microsoft/calculator">GitHub</span>.</p>
                 </ion-col>
               </ion-row>
             </ion-grid>

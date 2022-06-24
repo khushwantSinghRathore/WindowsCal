@@ -1,0 +1,23 @@
+<ion-content>
+  <div *ngIf="memory === ''" class="messg">
+    There's nothing saved in your memory
+  </div>
+
+  <ion-grid *ngIf="memory">
+    <ion-row style="text-align: end;" class="memorydigit">
+      <ion-col size="12">
+        {{ memory }}
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="text-align: end;" class="memorydigit">
+      <ion-col size="12" *ngFor="let one of memoArr">
+        {{ one }}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="det" *ngIf="memory" (click)="clearMemory()">
+    <ion-icon name="trash-sharp"></ion-icon>
+  </div>
+</ion-content>

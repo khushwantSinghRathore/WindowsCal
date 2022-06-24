@@ -1,55 +1,113 @@
-<ion-content fullscreen>
-<ion-grid>
-  <ion-row class="icons">
-    <ion-col size="2" (click)="openFirst()"> <ion-icon name="menu"></ion-icon> </ion-col>
-    <ion-col size="8"> </ion-col>
-    <ion-col size="2" id="open-modal">  <ion-icon name="timer-outline" class="rtg"></ion-icon> </ion-col>
-  </ion-row>
-</ion-grid>
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row class="icons">
+      <ion-col size="2" (click)="openFirst()">
+        <ion-icon name="menu"></ion-icon>
+      </ion-col>
+      <ion-col size="8"> </ion-col>
+      <ion-col size="2" id="open-modal">
+        <ion-icon name="timer-outline" class="rtg"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
   <div class="controls">
 
     <ion-grid>
       <ion-row>
-        <ion-col size="12" style="text-align: end; color:#777879; font-size: x-large;"> {{ displayEqv  }} </ion-col>
+        <ion-col size="12" class="input1"
+          style="text-align: end; color:#777879; font-size: x-large; overflow: scroll; white-space: nowrap;">
+          {{ displayEqv }} </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col size="12">
-          <ion-input type="text"  placeholder="0" style="direction:RTL !important; font-size: xxx-large !important; color: white !important; font-weight: 600;" disabled [(ngModel)]="currentVal">
-          </ion-input>
+        <ion-col size="12" class="input1"
+          style="text-align: end; overflow: scroll; white-space: nowrap; direction:LTR !important;">
+          <ion-label style=" font-size: xxx-large !important; color: white !important; font-weight: 600;"> {{ currentVal
+            }}</ion-label>
         </ion-col>
       </ion-row>
+      <ion-row class="memorybar">
+        <ion-col size="2" class="ion-align-self-center"
+          [ngClass]="{'active': memory,'inactive': !memory || memory === '' ,'ripple-parent': memory,'ion-activatable': memory}">
+          <div *ngIf="memory" (click)="memoryClear()">
+            MC
+          </div>
+          <div *ngIf="memory === ''">
+            MC
+          </div>
+          <ion-ripple-effect style=" border-radius: 8px !important;"></ion-ripple-effect>
+        </ion-col>
+        <ion-col size="2" class="ion-align-self-center"
+          [ngClass]="{'active': memory,'inactive': !memory || memory === '','ripple-parent': memory,'ion-activatable': memory}">
+          <div *ngIf="memory" (click)="memoRow()">
+            MR
+          </div>
+          <div *ngIf="memory === ''">
+            MR
+          </div>
+          <ion-ripple-effect style=" border-radius: 8px !important;"></ion-ripple-effect>
+        </ion-col>
+        <ion-col size="2" class="ion-align-self-center ion-activatable ripple-parent active" (click)="addMemory()">
+          M+
+          <ion-ripple-effect style=" border-radius: 8px !important;"></ion-ripple-effect>
+        </ion-col>
+        <ion-col size="2" class="ion-align-self-center ion-activatable ripple-parent active" (click)="subMemory()">
+          M--
+          <ion-ripple-effect style=" border-radius: 8px !important;"></ion-ripple-effect>
+        </ion-col>
+        <ion-col size="2" class="ion-align-self-center ion-activatable ripple-parent active" (click)="arrMemo()">
+          MS
+          <ion-ripple-effect style=" border-radius: 8px !important;"></ion-ripple-effect>
+        </ion-col>
+        <ion-col size="2" class="ion-align-self-center"
+          [ngClass]="{'active': memory,'inactive': !memory || memory === '','ripple-parent': memory,'ion-activatable': memory}">
+          <div *ngIf="memory" (click)="openModal()">
+            M▼
+          </div>
+          <div *ngIf="memory === ''">
+            M▼
+          </div>
+          <ion-ripple-effect style=" border-radius: 8px !important;"></ion-ripple-effect>
+        </ion-col>
+
+      </ion-row>
       <ion-row *ngFor="let data of displayBtn">
-        <ion-col class="Container ion-align-self-center ion-activatable ripple-parent" size="2.8" *ngFor="let btn of data "
-          [ngClass]="{'Container2': btn === '=' , 'Container3': darkopr.includes(btn)}" (click)="onBtn(btn)">  <div  *ngIf="btn !== 'clear'">  {{ btn }} </div>    <ion-icon name="backspace-outline" *ngIf="btn === 'clear'"></ion-icon>   <ion-ripple-effect style=" border-radius: 8px !important;"></ion-ripple-effect> </ion-col>
+        <ion-col class="Container ion-align-self-center ion-activatable ripple-parent" size="2.8"
+          *ngFor="let btn of data " [ngClass]="{'Container2': btn === '=' , 'Container3': darkopr.includes(btn)}"
+          (click)="onBtn(btn)">
+          <div *ngIf="btn !== 'clear'"> {{ btn }} </div>
+          <ion-icon name="backspace-outline" *ngIf="btn === 'clear'"></ion-icon>
+          <ion-ripple-effect style=" border-radius: 8px !important;"></ion-ripple-effect>
+        </ion-col>
       </ion-row>
     </ion-grid>
 
   </div>
 
-  <ion-modal #modal trigger="open-modal" [initialBreakpoint]="0.5" [breakpoints]="[0,0.5]">
+
+  <ion-modal #modal trigger="open-modal" [initialBreakpoint]="0.50" [breakpoints]="[0, 0.50]" [handle]="false">
     <ng-template>
       <ion-content>
-        <div *ngIf="!memory" class="messg">
+        <div *ngIf="lastten?.length <= 0" class="messg">
           There's no history yet
-
         </div>
+      
+        <ion-grid *ngIf="lastten" class="block">  
+          <ion-row class="rowmar"  *ngFor="let one of lastten | slice:0:10">
+            <ion-col size="12" class="memoryexperssion" >
+              {{ one?.ex }}
+            </ion-col>
+            <ion-col size="12" class="memorydigit" >
+              {{ one?.res }}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      
 
-      <ion-grid *ngIf="memory">
-        <ion-row>
-          <ion-col size="12">
-            {{ memory.displyeq }}
-          </ion-col>
-          <ion-col size="12">
-            {{ memory.result }}
-
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-
-      <div class="det" *ngIf="memory">  <ion-icon name="trash-sharp"></ion-icon> </div>
+        <div class="det" *ngIf="lastten?.length" (click)="clearhistory()">
+          <ion-icon name="trash-sharp"></ion-icon>
+        </div>
       </ion-content>
     </ng-template>
   </ion-modal>
-
 
 </ion-content>

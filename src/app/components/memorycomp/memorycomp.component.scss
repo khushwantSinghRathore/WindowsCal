@@ -1,0 +1,26 @@
+ion-content{
+    --background: #261c25 !important;  
+    backdrop-filter: blur(5px) !important;
+}
+
+.det{
+    position: absolute;
+    top: 45%;
+    right: 2%;
+    font-size: 30px;
+    color: white !important;
+}
+
+.messg{
+    padding: 2vh;
+    color: white !important;
+    text-align: start;
+    font-size: x-large;
+}
+
+.memorydigit{
+    margin-top: 2vh;
+    padding: 2vh 0vw;
+    color: white !important;
+    font-size: xx-large;
+}

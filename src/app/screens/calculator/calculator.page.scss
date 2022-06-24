@@ -65,17 +65,17 @@ ion-grid{
 
     .rtg{
         position: absolute;
-        right: 3vw;
-        top: 2vw;
+        right: 2vw;
+        top: 0.8vh;
     }
 }
 
 
 .det{
-    position: relative;
-    top: 42%;
-    left: 90%;
-    font-size: 30px;
+    position: absolute;
+    top: 46%;
+    right: 2%;
+    font-size: 25px;
     color: white !important;
 }
 
@@ -85,4 +85,53 @@ ion-grid{
     color: white !important;
     text-align: start;
     font-size: x-large;
+}
+
+
+.memorybar{
+    text-align: center; 
+    margin-top: 3vh;
+    vertical-align: middle;
+    margin-bottom: 0.5vh;
+  
+    .active{
+        color: white !important;
+        padding: 2vh 0vh;
+    }
+
+    .inactive{
+        color: #413441 !important;
+        padding: 2vh 0vh;
+    }
+}
+
+
+.input1{
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none; 
+}
+.input1::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+
+.rowmar{
+    text-align: end;
+    margin-top: 2vh;
+}
+
+.memorydigit{
+    padding: 0.5vh;
+    color: white !important;
+    font-size: xx-large;
+}
+
+.memoryexperssion{
+    font-size: larger;
+    color: #777879!important;
+}
+
+.block{
+    overflow: scroll;
+    height: 45%;
 }

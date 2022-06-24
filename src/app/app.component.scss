@@ -1,27 +1,37 @@
-ion-content{
-    --background: #261c25 !important;  
-    backdrop-filter: blur(5px) !important;
+ion-content {
+  --background: #261c25 !important;
+  backdrop-filter: blur(5px) !important;
 }
 
-.about{
-    position: absolute;
-    color: white !important;
-    bottom: 2vh;
-    width: 100%;
-    font-size: x-large;
+.about {
+  position: absolute;
+  color: white !important;
+  bottom: 2vh;
+  width: 100%;
+  font-size: x-large;
+ 
 
-    .icon{
-        text-align: end;
-    }
+  .icon {
+    text-align: end;
+    font-size: x-large;
+  }
 }
 
-.aboutmodel{
-    color: white !important;
-    font-size: x-large;
-    padding: 5vw;
+.aboutmodel {
+  color: white !important;
+  font-size: x-large;
+  padding: 5vw;
+  overflow: scroll;
+  height: 65vh;
 
-    p{
-        margin: 0px;
-        margin-top: 1.5vh;
-    }
+  p {
+    margin: 0px;
+    margin-top: 1.5vh;
+  }
+
+  .link {
+    color: #074f8e !important;
+    font-size: x-large;
+    font-weight: 450;
+  }
 }
