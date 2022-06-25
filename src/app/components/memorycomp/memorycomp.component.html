@@ -4,15 +4,17 @@
   </div>
 
   <ion-grid *ngIf="memory">
-    <ion-row style="text-align: end;" class="memorydigit">
-      <ion-col size="12">
+    <ion-row style="text-align: end;" class="memorydigit" >
+      <ion-col size="12" (click)="setmemo(memory)" class="ion-activatable ripple-parent">
         {{ memory }}
+        <ion-ripple-effect></ion-ripple-effect>
       </ion-col>
     </ion-row>
 
     <ion-row style="text-align: end;" class="memorydigit">
-      <ion-col size="12" *ngFor="let one of memoArr">
+      <ion-col size="12" *ngFor="let one of memoArr" (click)="setmemo(one)" class="ion-activatable ripple-parent">
         {{ one }}
+        <ion-ripple-effect></ion-ripple-effect>
       </ion-col>
     </ion-row>
   </ion-grid>

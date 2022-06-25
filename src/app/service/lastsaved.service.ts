@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class LastsavedService {
 
+  setthismemo: BehaviorSubject<any> = new BehaviorSubject('');
   memoryObj: BehaviorSubject<any> = new BehaviorSubject('');
   memoarry: BehaviorSubject<any> = new BehaviorSubject([]);
   constructor() { }
@@ -18,4 +19,7 @@ export class LastsavedService {
     this.memoarry.next(arr);
   }
 
+  setcurrtmemo(obj){
+    this.setthismemo.next(obj);
+  }
 }

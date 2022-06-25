@@ -25,4 +25,8 @@ export class MemorycompComponent implements OnInit {
     this.lastsave.memoarry.next(this.nmArr);
   }
 
+
+  setmemo(memory){
+    this.lastsave.setcurrtmemo(memory);
+  }
 }

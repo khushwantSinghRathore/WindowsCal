@@ -2,5 +2,12 @@
 	"appId": "io.ionic.starter",
 	"appName": "WindowsCal",
 	"webDir": "www",
-	"bundledWebRuntime": false
+	"bundledWebRuntime": false,
+	"plugins": {
+		"SplashScreen": {
+			"backgroundColor": "#FFFFFF",
+			"launchShowDuration": 20000,
+			"launchAutoHide": false
+		}
+	}
 }

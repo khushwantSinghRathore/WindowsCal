@@ -40,6 +40,12 @@ export class CalculatorPage implements OnInit {
 
   ngOnInit() {
     this.lastsave.memoryObj.subscribe( res => this.memory =  res);
+    this.lastsave.setthismemo.subscribe( res => {
+      if(res){
+        this.currentVal =  res;
+        this.lastsave.setcurrtmemo('');
+      }
+    });
   }
 
   async openModal() {
